@@ -5,13 +5,37 @@ git init
 git add .  
 git commit -m "first commit"  
 
+
+## Netlify
+https://github.com/netlify/netlify-plugin-nextjs/#readme  
+
+
+cd web  
+touch netlyfy.toml  
+npm install -D @netlify/plugin-nextjs@latest  
+
+
+...then add the plugin to your netlify.toml file:  
+[[plugins]]  
+package = "@netlify/plugin-nextjs"  
+
+[build]  
+publish = ".next"  
+
+base:  
+web
+
+build:     
+npm run build  
+
+
 ## examples:
 https://insp.ngo/  
 https://www.realchangenews.org/
 
 ## todo
 [] colors  
-  read  
+  red  
   orange  
 [] make todo  
 [] sitemap  
