@@ -28,6 +28,9 @@ web
 build:     
 npm run build  
 
+Publish directory:  
+.next
+
 
 ## examples:
 https://insp.ngo/  
