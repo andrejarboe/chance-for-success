@@ -1,7 +1,39 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
+
+const data = {
+  sections: [
+    {
+      title: 'news',
+      link: '/news',
+      image:
+        'https://images.pexels.com/photos/9469733/pexels-photo-9469733.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+      alt: '',
+    },
+    {
+      title: 'Newspaper Vendor Program',
+      link: '/vendor-program',
+      image:
+        'https://images.pexels.com/photos/4527900/pexels-photo-4527900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+    {
+      title: 'Services Program',
+      link: '/vendor-program',
+      image:
+        'https://images.pexels.com/photos/4527900/pexels-photo-4527900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+    {
+      title: 'Empowering People To Work',
+      link: '/news',
+      image:
+        'https://images.pexels.com/photos/4527900/pexels-photo-4527900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+  ],
+};
 
 export default function Home() {
+  const { sections } = data;
   return (
     <div>
       <Head>
@@ -11,9 +43,7 @@ export default function Home() {
       </Head>
       {/* start of Hero */}
       <div className="rounded-br-3xl md:rounded-br-40xl overflow-hidden">
-        <section
-          className="cover relative bg-gradient-to-r from-red-500 to-orange-400 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex items-center"
-        >
+        <section className="cover relative bg-gradient-to-r from-red-500 to-orange-400 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex items-center">
           <div className="h-full absolute top-0 left-0 right-0 z-0">
             <img
               src="images/agency_hero.jpg"
@@ -39,6 +69,96 @@ export default function Home() {
           </div>
         </section>
       </div>
+      {/* END Hero */}
+      {/* start of Sections */}
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+        {sections.map((section) => {
+          return (
+            <Link href={section.link}>
+              <a className="relative block bg-black group max-h-96 max-w-80">
+                <div className=" relative">
+                  <Image
+                    src={section.image}
+                    layout="fill"
+                    // className="rounded-md object-cover"
+                    className="object-cover relative inset-0 transition-opacity opacity-75  group-hover:opacity-50"
+                  />
+                  {/* Title */}
+                  <div className="relative px-8 flex flex-col h-96 w-80">
+                    <p className="text-2xl font-bold text-orange-500 pb-4">
+                      {section.title}
+                    </p>
+                  </div>
+                  {/* END Title */}
+                </div>
+              </a>
+            </Link>
+          );
+        })}
+        {sections.map((section) => {
+          return (
+            <Link
+              href={section.link}
+              className="relative flex items-end w-full bg-black h-96 group"
+            >
+              <a>
+                <div className="relative">
+                  <Image
+                    src={section.image}
+                    layout="fill"
+                    // className="rounded-md object-cover"
+                    className="absolute inset-0 object-cover w-full h-full transition-opacity group-hover:opacity-90"
+                  />
+                </div>
+              </a>
+            </Link>
+          );
+        })}
+        {sections.map((section) => {
+          return (
+            <a
+              href=""
+              className="relative flex items-end w-full bg-black h-96 group"
+            >
+              <img
+                alt="Modded Bike"
+                src={section.image}
+                className="absolute inset-0 object-cover w-full h-full transition-opacity group-hover:opacity-90"
+              />
+              <div className="relative w-full p-6 tracking-widest text-center text-white transition-colors bg-red-700 sm:w-2/3 group-hover:bg-black">
+                <strong className="text-lg uppercase">Custom Shop</strong>
+                <p className="mt-1 text-xs font-medium uppercase">
+                  Design your own
+                </p>
+              </div>
+            </a>
+          );
+        })}
+        {/*  */}
+        <a className="relative block bg-black group" href="">
+          <img
+            className="absolute inset-0 object-cover w-full h-full transition-opacity opacity-75  group-hover:opacity-50"
+            src="https://www.hyperui.dev/photos/man-6.jpeg"
+            alt=""
+          />
+          <div className="relative p-8">
+            <p className="text-sm font-medium tracking-widest text-orange-500 uppercase">
+              Title
+            </p>
+            <p className="text-2xl font-bold text-white">Barry Scott</p>
+            <div className="mt-64">
+              <div className="transition-all transform translate-y-8 opacity-0  group-hover:opacity-100 group-hover:translate-y-0">
+                <p className="text-sm text-white">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Omnis perferendis hic asperiores quibusdam quidem voluptates
+                  doloremque reiciendis nostrum harum. Repudiandae?
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      {/* END of Sections */}
     </div>
   );
 }
