@@ -5,20 +5,20 @@ import Link from 'next/link';
 const data = {
   sections: [
     {
-      title: 'news',
+      title: 'News',
       link: '/news',
       image:
         'https://images.pexels.com/photos/9469733/pexels-photo-9469733.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
       alt: '',
     },
     {
-      title: 'Newspaper Vendor Program',
+      title: 'Vendor Program',
       link: '/vendor-program',
       image:
         'https://images.pexels.com/photos/4527900/pexels-photo-4527900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     },
     {
-      title: 'Services Program',
+      title: 'Advocacy',
       link: '/vendor-program',
       image:
         'https://images.pexels.com/photos/4527900/pexels-photo-4527900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
@@ -45,11 +45,11 @@ export default function Home() {
       <div className="rounded-br-3xl md:rounded-br-40xl overflow-hidden">
         <section className="cover relative bg-gradient-to-r from-red-500 to-orange-400 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex items-center">
           <div className="h-full absolute top-0 left-0 right-0 z-0">
-            <img
+            {/* <img
               src="images/agency_hero.jpg"
               alt=""
               className="w-full h-full object-cover opacity-20"
-            />
+            /> */}
           </div>
           <div className="lg:w-3/4 xl:w-2/4 relative z-10 h-100 lg:mt-16">
             <div>
@@ -97,18 +97,20 @@ export default function Home() {
         })}
         {sections.map((section) => {
           return (
-            <Link
-              href={section.link}
-              className="relative flex items-end w-full bg-black h-96 group"
-            >
-              <a>
-                <div className="relative">
-                  <Image
-                    src={section.image}
-                    layout="fill"
-                    // className="rounded-md object-cover"
-                    className="absolute inset-0 object-cover w-full h-full transition-opacity group-hover:opacity-90"
-                  />
+            <Link href={section.link} className="">
+              <a className="relative flex items-end w-full bg-black h-96 group">
+                <Image
+                  src={section.image}
+                  alt="Picture of the author"
+                  layout="fill" // required
+                  objectFit="cover" // change to suit your needs
+                  className="" // just an example
+                />
+                <div className="relative w-full p-6 tracking-widest text-center text-orange-100 transition-colors bg-orange-700 sm:w-[95%] group-hover:bg-black">
+                  <strong className="text-lg uppercase">{section.title}</strong>
+                  {/* <p className="mt-1 text-xs font-medium uppercase">
+                    Design your own
+                  </p> */}
                 </div>
               </a>
             </Link>
@@ -116,47 +118,44 @@ export default function Home() {
         })}
         {sections.map((section) => {
           return (
-            <a
-              href=""
-              className="relative flex items-end w-full bg-black h-96 group"
-            >
-              <img
-                alt="Modded Bike"
-                src={section.image}
-                className="absolute inset-0 object-cover w-full h-full transition-opacity group-hover:opacity-90"
-              />
-              <div className="relative w-full p-6 tracking-widest text-center text-white transition-colors bg-red-700 sm:w-2/3 group-hover:bg-black">
-                <strong className="text-lg uppercase">Custom Shop</strong>
-                <p className="mt-1 text-xs font-medium uppercase">
-                  Design your own
-                </p>
-              </div>
-            </a>
+            <Link href={section.link} className="">
+              <a className="relative block bg-black group" href="">
+                {/* <img
+                  className="absolute inset-0 object-cover w-full h-full transition-opacity opacity-75  group-hover:opacity-50"
+                  src="https://www.hyperui.dev/photos/man-6.jpeg"
+                  alt=""
+                /> */}
+                <Image
+                  src={section.image}
+                  alt="Picture of the author"
+                  layout="fill" // required
+                  objectFit="cover" // change to suit your needs
+                  className="" // just an example
+                />
+                <div className="relative">
+                  {/* <p className="text-sm font-medium tracking-widest text-orange-500 uppercase">
+                    {section.title}
+                  </p> */}
+                  <p className="text-2xl font-bold text-orange-100 bg-orange-500 py-4">
+                    {section.title}
+                  </p>
+                  <div className="mt-64">
+                    <div className="transition-all transform translate-y-8 opacity-0  group-hover:opacity-100 group-hover:translate-y-0">
+                      <p className="text-sm text-white">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Omnis perferendis hic asperiores quibusdam quidem
+                        voluptates doloremque reiciendis nostrum harum.
+                        Repudiandae?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </Link>
           );
         })}
         {/*  */}
-        <a className="relative block bg-black group" href="">
-          <img
-            className="absolute inset-0 object-cover w-full h-full transition-opacity opacity-75  group-hover:opacity-50"
-            src="https://www.hyperui.dev/photos/man-6.jpeg"
-            alt=""
-          />
-          <div className="relative p-8">
-            <p className="text-sm font-medium tracking-widest text-orange-500 uppercase">
-              Title
-            </p>
-            <p className="text-2xl font-bold text-white">Barry Scott</p>
-            <div className="mt-64">
-              <div className="transition-all transform translate-y-8 opacity-0  group-hover:opacity-100 group-hover:translate-y-0">
-                <p className="text-sm text-white">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Omnis perferendis hic asperiores quibusdam quidem voluptates
-                  doloremque reiciendis nostrum harum. Repudiandae?
-                </p>
-              </div>
-            </div>
-          </div>
-        </a>
+
       </div>
       {/* END of Sections */}
     </div>
