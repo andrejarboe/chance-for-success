@@ -72,9 +72,9 @@ export default function Home() {
       {/* END Hero */}
       {/* start of Sections */}
       <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-        {sections.map((section) => {
+        {sections.map((section, index) => {
           return (
-            <Link href={section.link}>
+            <Link key={index} href={section.link}>
               <a className="relative block bg-black group max-h-96 max-w-80">
                 <div className=" relative">
                   <Image
@@ -95,9 +95,9 @@ export default function Home() {
             </Link>
           );
         })}
-        {sections.map((section) => {
+        {sections.map((section, index) => {
           return (
-            <Link href={section.link} className="">
+            <Link key={index} href={section.link} className="">
               <a className="relative flex items-end w-full bg-black h-96 group">
                 <Image
                   src={section.image}
@@ -116,9 +116,9 @@ export default function Home() {
             </Link>
           );
         })}
-        {sections.map((section) => {
+        {sections.map((section, index) => {
           return (
-            <Link href={section.link} className="">
+            <Link key={index} href={section.link} className="">
               <a className="relative block bg-black group" href="">
                 {/* <img
                   className="absolute inset-0 object-cover w-full h-full transition-opacity opacity-75  group-hover:opacity-50"
