@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import Card1 from '../components/Cards/Card1';
 
 const data = {
   sections: [
@@ -30,10 +31,67 @@ const data = {
         'https://images.pexels.com/photos/4527900/pexels-photo-4527900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     },
   ],
+  posts: [
+    {
+      title: 'This is a title',
+      imageUrl:
+        'https://images.pexels.com/photos/9469733/pexels-photo-9469733.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+    {
+      title: 'This is a title',
+      imageUrl:
+        'https://images.pexels.com/photos/10800242/pexels-photo-10800242.jpeg?cs=srgb&dl=pexels-mary-10800242.jpg&fm=jpg',
+    },
+    {
+      title: 'This is a title',
+      imageUrl:
+        'https://images.pexels.com/photos/10810753/pexels-photo-10810753.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+    {
+      title: 'This is a title',
+      imageUrl:
+        'https://images.pexels.com/photos/3767370/pexels-photo-3767370.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+    {
+      title: 'This is a title',
+      imageUrl:
+        'https://images.pexels.com/photos/5835416/pexels-photo-5835416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+    {
+      title: 'This is a title',
+      imageUrl:
+        'https://images.pexels.com/photos/6353834/pexels-photo-6353834.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+    {
+      title: 'This is a title',
+      imageUrl:
+        'https://images.pexels.com/photos/10810753/pexels-photo-10810753.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+    {
+      title: 'This is a title',
+      imageUrl:
+        'https://images.pexels.com/photos/3767370/pexels-photo-3767370.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+    {
+      title: 'This is a title',
+      imageUrl:
+        'https://images.pexels.com/photos/5835416/pexels-photo-5835416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+    {
+      title: 'This is a title',
+      imageUrl:
+        'https://images.pexels.com/photos/10810753/pexels-photo-10810753.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+    {
+      title: 'This is a title',
+      imageUrl:
+        'https://images.pexels.com/photos/6353834/pexels-photo-6353834.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    },
+  ],
 };
 
 export default function Home() {
-  const { sections } = data;
+  const { sections, posts } = data;
   return (
     <div>
       <Head>
@@ -136,17 +194,17 @@ export default function Home() {
                   {/* <p className="text-sm font-medium tracking-widest text-orange-500 uppercase">
                     {section.title}
                   </p> */}
-                  <p className="text-2xl font-bold text-orange-100 bg-orange-500 py-4">
+                  <p className="text-2xl font-bold text-orange-100 py-4 pl-4">
                     {section.title}
                   </p>
                   <div className="mt-64">
                     <div className="transition-all transform translate-y-8 opacity-0  group-hover:opacity-100 group-hover:translate-y-0">
-                      <p className="text-sm text-white">
+                      {/* <p className="text-sm text-white">
                         Lorem ipsum dolor, sit amet consectetur adipisicing
                         elit. Omnis perferendis hic asperiores quibusdam quidem
                         voluptates doloremque reiciendis nostrum harum.
                         Repudiandae?
-                      </p>
+                      </p> */}
                     </div>
                   </div>
                 </div>
@@ -154,10 +212,20 @@ export default function Home() {
             </Link>
           );
         })}
+        {/* END of Sections */}
         {/*  */}
 
+        {/*  */}
       </div>
-      {/* END of Sections */}
+        <section>
+          <div className="mx-4 md:mx-auto md:w-11/12 lg:mx-auto lg:w-1/2 ">
+            <div>
+              {posts.map((post, index) => {
+                return <Card1 imageUrl={post.imageUrl} />;
+              })}
+            </div>
+          </div>
+        </section>
     </div>
   );
 }
